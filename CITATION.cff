@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ReadyAPI CLI
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: khulnasoft
+    family-names: DevOps
+    email: info@khulnasoft.com
+identifiers:
+repository-code: 'https://github.com/khulnasoft/readyapi-cli'
+url: 'https://readyapi.khulnasoft.com'
+abstract: >-
+  Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀
+keywords:
+  - readyapi
+  - typer
+  - readyapi-cli
+license: MIT

@@ -1,11 +1,11 @@
 [project]
 name = "readyapi-cli"
 dynamic = ["version"]
-description = "Run ReadyAPI applications from the command line."
+description = "Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀"
 authors = [
     {name = "KhulnaSoft DevOps", email = "info@khulnasoft.com"},
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 readme = "README.md"
 license = {text = "MIT"}
 classifiers = [
@@ -104,10 +104,9 @@ exclude_lines = [
 
 [tool.mypy]
 strict = true
-
-# [[tool.mypy.overrides]]
-# module = "shellingham"
-# ignore_missing_imports = true
+exclude = [
+    "tests/assets/*",
+]
 
 [tool.ruff.lint]
 select = [

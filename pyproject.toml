@@ -38,7 +38,7 @@ dependencies = [
 [project.optional-dependencies]
 standard = [
     "readyapi",
-    "uvicorn[standard] >= 0.15.0",
+    "uvicorn[standard] >= 0.29.0",
 ]
 
 [project.urls]

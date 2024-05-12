@@ -8,7 +8,7 @@ message: >-
   metadata from this file.
 type: software
 authors:
-  - given-names: khulnasoft
+  - given-names: KhulnaSoft
     family-names: DevOps
     email: info@khulnasoft.com
 identifiers:

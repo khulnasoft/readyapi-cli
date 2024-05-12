@@ -51,7 +51,6 @@ def _run(
     host: str = "127.0.0.1",
     port: int = 8000,
     reload: bool = True,
-    workers: Union[int, None] = None,
     root_path: str = "",
     command: str,
     app: Union[str, None] = None,
@@ -86,7 +85,6 @@ def _run(
         host=host,
         port=port,
         reload=reload,
-        workers=workers,
         root_path=root_path,
         proxy_headers=proxy_headers,
     )
@@ -202,12 +200,6 @@ def run(
             help="Enable auto-reload of the server when (code) files change. This is [bold]resource intensive[/bold], use it only during development."
         ),
     ] = False,
-    workers: Annotated[
-        Union[int, None],
-        typer.Option(
-            help="Use multiple worker processes. Mutually exclusive with the --reload flag."
-        ),
-    ] = None,
     root_path: Annotated[
         str,
         typer.Option(
@@ -257,7 +249,6 @@ def run(
         host=host,
         port=port,
         reload=reload,
-        workers=workers,
         root_path=root_path,
         app=app,
         command="run",

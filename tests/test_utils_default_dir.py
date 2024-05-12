@@ -19,13 +19,10 @@ def test_app_dir_main(capsys: CaptureFixture[str]) -> None:
     assert "Using path app/main.py" in captured.out
     assert "Resolved absolute path" in captured.out
     assert (
-        "/readyapi-cli/tests/assets/default_files/default_app_dir_main/app/main.py"
-        in captured.out
+        "/tests/assets/default_files/default_app_dir_main/app/main.py" in captured.out
     )
     assert "Importing from" in captured.out
-    assert (
-        "readyapi-cli/tests/assets/default_files/default_app_dir_main" in captured.out
-    )
+    assert "tests/assets/default_files/default_app_dir_main" in captured.out
     assert "╭─ Python package file structure ─╮" in captured.out
     assert "│  📁 app" in captured.out
     assert "│  ├── 🐍 __init__.py" in captured.out
@@ -45,12 +42,9 @@ def test_app_dir_app(capsys: CaptureFixture[str]) -> None:
     captured = capsys.readouterr()
     assert "Using path app/app.py" in captured.out
     assert "Resolved absolute path" in captured.out
-    assert (
-        "/readyapi-cli/tests/assets/default_files/default_app_dir_app/app/app.py"
-        in captured.out
-    )
+    assert "/tests/assets/default_files/default_app_dir_app/app/app.py" in captured.out
     assert "Importing from" in captured.out
-    assert "readyapi-cli/tests/assets/default_files/default_app_dir_app" in captured.out
+    assert "tests/assets/default_files/default_app_dir_app" in captured.out
     assert "╭─ Python package file structure ─╮" in captured.out
     assert "│  📁 app" in captured.out
     assert "│  ├── 🐍 __init__.py" in captured.out
@@ -70,12 +64,9 @@ def test_app_dir_api(capsys: CaptureFixture[str]) -> None:
     captured = capsys.readouterr()
     assert "Using path app/api.py" in captured.out
     assert "Resolved absolute path" in captured.out
-    assert (
-        "/readyapi-cli/tests/assets/default_files/default_app_dir_api/app/api.py"
-        in captured.out
-    )
+    assert "/tests/assets/default_files/default_app_dir_api/app/api.py" in captured.out
     assert "Importing from" in captured.out
-    assert "readyapi-cli/tests/assets/default_files/default_app_dir_api" in captured.out
+    assert "tests/assets/default_files/default_app_dir_api" in captured.out
     assert "╭─ Python package file structure ─╮" in captured.out
     assert "│  📁 app" in captured.out
     assert "│  ├── 🐍 __init__.py" in captured.out

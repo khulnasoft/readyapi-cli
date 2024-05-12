@@ -1,9 +1,9 @@
 from pathlib import Path
 
 import pytest
+from pytest import CaptureFixture
 from readyapi_cli.discover import get_import_string
 from readyapi_cli.exceptions import ReadyAPICLIException
-from pytest import CaptureFixture
 
 from .utils import changing_dir
 

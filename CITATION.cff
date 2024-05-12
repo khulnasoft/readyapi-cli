@@ -15,7 +15,7 @@ identifiers:
 repository-code: 'https://github.com/khulnasoft/readyapi-cli'
 url: 'https://readyapi.khulnasoft.com'
 abstract: >-
-  Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀
+  Run ReadyAPI applications from the command line.
 keywords:
   - readyapi
   - typer

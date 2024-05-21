@@ -5,7 +5,6 @@ from logging import getLogger
 from pathlib import Path
 from typing import Union
 
-from readyapi import ReadyAPI
 from rich import print
 from rich.padding import Padding
 from rich.panel import Panel
@@ -16,6 +15,10 @@ from readyapi_cli.exceptions import ReadyAPICLIException
 
 logger = getLogger(__name__)
 
+try:
+     from readyapi import ReadyAPI
+ except ImportError:  # pragma: no cover
+     ReadyAPI = None  # type: ignore[misc, assignment]
 
 def get_default_path() -> Path:
     path = Path("main.py")

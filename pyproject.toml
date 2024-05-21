@@ -20,6 +20,7 @@ classifiers = [
     "Topic :: Software Development",
     "Typing :: Typed",
     "Development Status :: 4 - Beta",
+    "Framework :: ReadyAPI",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3 :: Only",
@@ -38,7 +39,7 @@ dependencies = [
 [project.optional-dependencies]
 standard = [
     "readyapi",
-    "uvicorn[standard] >= 0.29.0",
+    "uvicorn[standard] >= 0.15.0",
 ]
 
 [project.urls]
@@ -69,10 +70,12 @@ source-includes = [
 name = "readyapi-cli-slim"
 
 [tool.khulnasoft._internal-slim-build.packages.readyapi-cli]
-include-optional-dependencies = ["standard"]
+# No default dependencies included for now
+include-optional-dependencies = []
 
 [tool.khulnasoft._internal-slim-build.packages.readyapi-cli.project]
-optional-dependencies = {}
+# No custom optional dependencies for now
+# optional-dependencies = {}
 
 [tool.pytest.ini_options]
 addopts = [

@@ -82,6 +82,8 @@ ReadyAPI CLI takes the path to your Python program and automatically detects the
 
 For production you would use `readyapi run` instead. 🚀
 
+Internally, **ReadyAPI CLI** uses <a href="https://www.uvicorn.org" class="external-link" target="_blank">Uvicorn</a>, a high-performance, production-ready, ASGI server. 😎
+
 ## `readyapi dev`
 
 When you run `readyapi dev`, it will run on development mode.

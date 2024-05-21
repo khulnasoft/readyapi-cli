@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import Any, Union
 
 import typer
-import uvicorn
 from rich import print
 from rich.padding import Padding
 from rich.panel import Panel
@@ -19,6 +18,11 @@ app = typer.Typer(rich_markup_mode="rich")
 
 setup_logging()
 logger = getLogger(__name__)
+
+try:
+    import uvicorn
+except ImportError:  # pragma: no cover
+    uvicorn = None  # type: ignore[assignment]
 
 
 def version_callback(value: bool) -> None:
@@ -51,6 +55,7 @@ def _run(
     host: str = "127.0.0.1",
     port: int = 8000,
     reload: bool = True,
+    workers: Union[int, None] = None,
     root_path: str = "",
     command: str,
     app: Union[str, None] = None,
@@ -80,11 +85,16 @@ def _run(
             style="green",
         )
     print(Padding(panel, 1))
+    if not uvicorn:
+        raise ReadyAPICLIException(
+            "Could not import Uvicorn, try running 'pip install uvicorn'"
+        ) from None
     uvicorn.run(
         app=use_uvicorn_app,
         host=host,
         port=port,
         reload=reload,
+        workers=workers,
         root_path=root_path,
         proxy_headers=proxy_headers,
     )
@@ -200,6 +210,12 @@ def run(
             help="Enable auto-reload of the server when (code) files change. This is [bold]resource intensive[/bold], use it only during development."
         ),
     ] = False,
+    workers: Annotated[
+        Union[int, None],
+        typer.Option(
+            help="Use multiple worker processes. Mutually exclusive with the --reload flag."
+        ),
+    ] = None,
     root_path: Annotated[
         str,
         typer.Option(
@@ -249,6 +265,7 @@ def run(
         host=host,
         port=port,
         reload=reload,
+        workers=workers,
         root_path=root_path,
         app=app,
         command="run",

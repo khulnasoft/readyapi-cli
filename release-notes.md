@@ -2,6 +2,8 @@
 
 ## Latest Changes
 
+* ✨ Initialize project. PR [#17](https://github.com/khulnasoft/readyapi-cli/pull/17) by [@gitworkflows](https://github.com/gitworkflows).
+
 ### Refactors
 
 * ♻️ Simplify code in `src/readyapi_cli/discover.py`. PR [#22](https://github.com/khulnasoft/readyapi-cli/pull/22) by [@pedroimpulcetto](https://github.com/pedroimpulcetto).

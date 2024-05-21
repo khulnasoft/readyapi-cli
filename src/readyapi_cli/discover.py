@@ -5,7 +5,6 @@ from logging import getLogger
 from pathlib import Path
 from typing import Union
 
-from readyapi import ReadyAPI
 from rich import print
 from rich.padding import Padding
 from rich.panel import Panel
@@ -16,6 +15,10 @@ from readyapi_cli.exceptions import ReadyAPICLIException
 
 logger = getLogger(__name__)
 
+try:
+     from readyapi import ReadyAPI
+ except ImportError:  # pragma: no cover
+     ReadyAPI = None  # type: ignore[misc, assignment]
 
 def get_default_path() -> Path:
     path = Path("main.py")
@@ -107,6 +110,11 @@ def get_app_name(*, mod_data: ModuleData, app_name: Union[str, None] = None) -> 
             "Ensure all the package directories have an [blue]__init__.py[/blue] file"
         )
         raise
+    if not ReadyAPI:  # type: ignore[truthy-function]
+         raise ReadyAPICLIException(
+             "Could not import ReadyAPI, try running 'pip install readyapi'"
+         ) from None
+         
     object_names = dir(mod)
     object_names_set = set(object_names)
     if app_name:

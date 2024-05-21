@@ -44,6 +44,8 @@ jobs:
         run: |
           cd dist/readyapi_cli*/
           pip install -r requirements-tests.txt
+        env:
+          KHULNASOFT_BUILD_PACKAGE: ${{ matrix.package }}
       - name: Run source distribution tests
         run: |
           cd dist/readyapi_cli*/

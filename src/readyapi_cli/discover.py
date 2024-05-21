@@ -5,7 +5,6 @@ from logging import getLogger
 from pathlib import Path
 from typing import Union
 
-from readyapi import ReadyAPI
 from rich import print
 from rich.padding import Padding
 from rich.panel import Panel
@@ -16,26 +15,27 @@ from readyapi_cli.exceptions import ReadyAPICLIException
 
 logger = getLogger(__name__)
 
+try:
+    from readyapi import ReadyAPI
+except ImportError:  # pragma: no cover
+    ReadyAPI = None  # type: ignore[misc, assignment]
+
 
 def get_default_path() -> Path:
-    path = Path("main.py")
-    if path.is_file():
-        return path
-    path = Path("app.py")
-    if path.is_file():
-        return path
-    path = Path("api.py")
-    if path.is_file():
-        return path
-    path = Path("app/main.py")
-    if path.is_file():
-        return path
-    path = Path("app/app.py")
-    if path.is_file():
-        return path
-    path = Path("app/api.py")
-    if path.is_file():
-        return path
+    potential_paths = (
+        "main.py",
+        "app.py",
+        "api.py",
+        "app/main.py",
+        "app/app.py",
+        "app/api.py",
+    )
+
+    for full_path in potential_paths:
+        path = Path(full_path)
+        if path.is_file():
+            return path
+
     raise ReadyAPICLIException(
         "Could not find a default file to run, please provide an explicit path"
     )
@@ -107,6 +107,10 @@ def get_app_name(*, mod_data: ModuleData, app_name: Union[str, None] = None) -> 
             "Ensure all the package directories have an [blue]__init__.py[/blue] file"
         )
         raise
+    if not ReadyAPI:  # type: ignore[truthy-function]
+        raise ReadyAPICLIException(
+            "Could not import ReadyAPI, try running 'pip install readyapi'"
+        ) from None
     object_names = dir(mod)
     object_names_set = set(object_names)
     if app_name:

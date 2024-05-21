@@ -110,6 +110,11 @@ def get_app_name(*, mod_data: ModuleData, app_name: Union[str, None] = None) -> 
             "Ensure all the package directories have an [blue]__init__.py[/blue] file"
         )
         raise
+    if not ReadyAPI:  # type: ignore[truthy-function]
+         raise ReadyAPICLIException(
+             "Could not import ReadyAPI, try running 'pip install readyapi'"
+         ) from None
+         
     object_names = dir(mod)
     object_names_set = set(object_names)
     if app_name:

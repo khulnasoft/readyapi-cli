@@ -3,7 +3,7 @@ name = "readyapi-cli"
 dynamic = ["version"]
 description = "Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀"
 authors = [
-    {name = "KhulnaSoft DevOps", email = "khulnasoft@gmail.com"},
+    {name = "KhulnaSoft DevOps", email = "info@khulnasoft.com"},
 ]
 requires-python = ">=3.8"
 readme = "README.md"
@@ -32,7 +32,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
-    "typer >= 0.12.3",
+    "cligenius >= 0.12.3",
     "uvicorn[standard] >= 0.15.0",
 ]
 
@@ -124,7 +124,7 @@ ignore = [
 
 
 [tool.ruff.lint.isort]
-known-third-party = ["typer", "readyapi"]
+known-third-party = ["cligenius", "readyapi"]
 
 [tool.ruff.lint.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.

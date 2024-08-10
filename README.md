@@ -47,14 +47,14 @@ INFO     Importing module main
 INFO     Found importable ReadyAPI app
 
  ╭─ Importable ReadyAPI app ─╮
- │                          │
- │  from main import app    │
- │                          │
- ╰──────────────────────────╯
+ │                           │
+ │  from main import app     │
+ │                           │
+ ╰──────────────────────────-╯
 
 INFO     Using import string main:app
 
- ╭────────── ReadyAPI CLI - Development mode ───────────╮
+ ╭────────── ReadyAPI CLI - Development mode ──────────╮
  │                                                     │
  │  Serving at: http://127.0.0.1:8000                  │
  │                                                     │
@@ -62,7 +62,7 @@ INFO     Using import string main:app
  │                                                     │
  │  Running in development mode, for production use:   │
  │                                                     │
- │  readyapi run                                        │
+ │  readyapi run                                       │
  │                                                     │
  ╰─────────────────────────────────────────────────────╯
 

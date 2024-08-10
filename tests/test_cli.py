@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 import uvicorn
 from readyapi_cli.cli import app
-from typer.testing import CliRunner
+from cligenius.testing import CliRunner
 
 from tests.utils import changing_dir
 

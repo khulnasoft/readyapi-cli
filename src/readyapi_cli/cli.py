@@ -2,7 +2,7 @@ from logging import getLogger
 from pathlib import Path
 from typing import Any, Union
 
-import typer
+import cligenius
 from rich import print
 from rich.padding import Padding
 from rich.panel import Panel
@@ -14,7 +14,7 @@ from readyapi_cli.exceptions import ReadyAPICLIException
 from . import __version__
 from .logging import setup_logging
 
-app = typer.Typer(rich_markup_mode="rich")
+app = cligenius.Cligenius(rich_markup_mode="rich")
 
 setup_logging()
 logger = getLogger(__name__)
@@ -28,14 +28,14 @@ except ImportError:  # pragma: no cover
 def version_callback(value: bool) -> None:
     if value:
         print(f"ReadyAPI CLI version: [green]{__version__}[/green]")
-        raise typer.Exit()
+        raise cligenius.Exit()
 
 
 @app.callback()
 def callback(
     version: Annotated[
         Union[bool, None],
-        typer.Option(
+        cligenius.Option(
             "--version", help="Show the version and exit.", callback=version_callback
         ),
     ] = None,
@@ -65,7 +65,7 @@ def _run(
         use_uvicorn_app = get_import_string(path=path, app_name=app)
     except ReadyAPICLIException as e:
         logger.error(str(e))
-        raise typer.Exit(code=1) from None
+        raise cligenius.Exit(code=1) from None
     serving_str = f"[dim]Serving at:[/dim] [link]http://{host}:{port}[/link]\n\n[dim]API docs:[/dim] [link]http://{host}:{port}/docs[/link]"
 
     if command == "dev":
@@ -104,44 +104,44 @@ def _run(
 def dev(
     path: Annotated[
         Union[Path, None],
-        typer.Argument(
+        cligenius.Argument(
             help="A path to a Python file or package directory (with [blue]__init__.py[/blue] files) containing a [bold]ReadyAPI[/bold] app. If not provided, a default set of paths will be tried."
         ),
     ] = None,
     *,
     host: Annotated[
         str,
-        typer.Option(
+        cligenius.Option(
             help="The host to serve on. For local development in localhost use [blue]127.0.0.1[/blue]. To enable public access, e.g. in a container, use all the IP addresses available with [blue]0.0.0.0[/blue]."
         ),
     ] = "127.0.0.1",
     port: Annotated[
         int,
-        typer.Option(
+        cligenius.Option(
             help="The port to serve on. You would normally have a termination proxy on top (another program) handling HTTPS on port [blue]443[/blue] and HTTP on port [blue]80[/blue], transferring the communication to your app."
         ),
     ] = 8000,
     reload: Annotated[
         bool,
-        typer.Option(
+        cligenius.Option(
             help="Enable auto-reload of the server when (code) files change. This is [bold]resource intensive[/bold], use it only during development."
         ),
     ] = True,
     root_path: Annotated[
         str,
-        typer.Option(
+        cligenius.Option(
             help="The root path is used to tell your app that it is being served to the outside world with some [bold]path prefix[/bold] set up in some termination proxy or similar."
         ),
     ] = "",
     app: Annotated[
         Union[str, None],
-        typer.Option(
+        cligenius.Option(
             help="The name of the variable that contains the [bold]ReadyAPI[/bold] app in the imported module or package. If not provided, it is detected automatically."
         ),
     ] = None,
     proxy_headers: Annotated[
         bool,
-        typer.Option(
+        cligenius.Option(
             help="Enable/Disable X-Forwarded-Proto, X-Forwarded-For, X-Forwarded-Port to populate remote address info."
         ),
     ] = True,
@@ -187,50 +187,50 @@ def dev(
 def run(
     path: Annotated[
         Union[Path, None],
-        typer.Argument(
+        cligenius.Argument(
             help="A path to a Python file or package directory (with [blue]__init__.py[/blue] files) containing a [bold]ReadyAPI[/bold] app. If not provided, a default set of paths will be tried."
         ),
     ] = None,
     *,
     host: Annotated[
         str,
-        typer.Option(
+        cligenius.Option(
             help="The host to serve on. For local development in localhost use [blue]127.0.0.1[/blue]. To enable public access, e.g. in a container, use all the IP addresses available with [blue]0.0.0.0[/blue]."
         ),
     ] = "0.0.0.0",
     port: Annotated[
         int,
-        typer.Option(
+        cligenius.Option(
             help="The port to serve on. You would normally have a termination proxy on top (another program) handling HTTPS on port [blue]443[/blue] and HTTP on port [blue]80[/blue], transferring the communication to your app."
         ),
     ] = 8000,
     reload: Annotated[
         bool,
-        typer.Option(
+        cligenius.Option(
             help="Enable auto-reload of the server when (code) files change. This is [bold]resource intensive[/bold], use it only during development."
         ),
     ] = False,
     workers: Annotated[
         Union[int, None],
-        typer.Option(
+        cligenius.Option(
             help="Use multiple worker processes. Mutually exclusive with the --reload flag."
         ),
     ] = None,
     root_path: Annotated[
         str,
-        typer.Option(
+        cligenius.Option(
             help="The root path is used to tell your app that it is being served to the outside world with some [bold]path prefix[/bold] set up in some termination proxy or similar."
         ),
     ] = "",
     app: Annotated[
         Union[str, None],
-        typer.Option(
+        cligenius.Option(
             help="The name of the variable that contains the [bold]ReadyAPI[/bold] app in the imported module or package. If not provided, it is detected automatically."
         ),
     ] = None,
     proxy_headers: Annotated[
         bool,
-        typer.Option(
+        cligenius.Option(
             help="Enable/Disable X-Forwarded-Proto, X-Forwarded-For, X-Forwarded-Port to populate remote address info."
         ),
     ] = True,

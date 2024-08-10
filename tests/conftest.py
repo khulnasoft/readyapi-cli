@@ -3,7 +3,7 @@ from typing import Generator
 
 import pytest
 from readyapi_cli.logging import setup_logging
-from typer import rich_utils
+from cligenius import rich_utils
 
 
 @pytest.fixture(autouse=True)

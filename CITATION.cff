@@ -10,7 +10,7 @@ type: software
 authors:
   - given-names: KhulnaSoft
     family-names: DevOps
-    email: khulnasoft@gmail.com
+    email: info@khulnasoft.com
 identifiers:
 repository-code: 'https://github.com/readyapi/readyapi-cli'
 url: 'https://readyapi.khulnasoft.com'
@@ -18,6 +18,6 @@ abstract: >-
   Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀
 keywords:
   - readyapi
-  - typer
+  - cligenius
   - readyapi-cli
 license: MIT

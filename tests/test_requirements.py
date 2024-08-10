@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from readyapi_cli.discover import get_import_string
 from readyapi_cli.exceptions import ReadyAPICLIException
-from typer.testing import CliRunner
+from cligenius.testing import CliRunner
 
 from .utils import changing_dir
 

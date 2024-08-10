@@ -1,20 +1,20 @@
 # ReadyAPI CLI
 
-<a href="https://github.com/khulnasoft/readyapi-cli/actions/workflows/test.yml" target="_blank">
-    <img src="https://github.com/khulnasoft/readyapi-cli/actions/workflows/test.yml/badge.svg" alt="Test">
+<a href="https://github.com/readyapi/readyapi-cli/actions/workflows/test.yml" target="_blank">
+    <img src="https://github.com/readyapi/readyapi-cli/actions/workflows/test.yml/badge.svg" alt="Test">
 </a>
-<a href="https://github.com/khulnasoft/readyapi-cli/actions/workflows/publish.yml" target="_blank">
-    <img src="https://github.com/khulnasoft/readyapi-cli/actions/workflows/publish.yml/badge.svg" alt="Publish">
+<a href="https://github.com/readyapi/readyapi-cli/actions/workflows/publish.yml" target="_blank">
+    <img src="https://github.com/readyapi/readyapi-cli/actions/workflows/publish.yml/badge.svg" alt="Publish">
 </a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/khulnasoft/readyapi-cli" target="_blank">
-    <img src="https://coverage-badge.samuelcolvin.workers.dev/khulnasoft/readyapi-cli.svg" alt="Coverage">
+<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/readyapi/readyapi-cli" target="_blank">
+    <img src="https://coverage-badge.samuelcolvin.workers.dev/readyapi/readyapi-cli.svg" alt="Coverage">
 <a href="https://pypi.org/project/readyapi-cli" target="_blank">
     <img src="https://img.shields.io/pypi/v/readyapi-cli?color=%2334D058&label=pypi%20package" alt="Package version">
 </a>
 
 ---
 
-**Source Code**: <a href="https://github.com/khulnasoft/readyapi-cli" target="_blank">https://github.com/khulnasoft/readyapi-cli</a>
+**Source Code**: <a href="https://github.com/readyapi/readyapi-cli" target="_blank">https://github.com/readyapi/readyapi-cli</a>
 
 ---
 
@@ -24,7 +24,7 @@ Run and manage ReadyAPI apps from the command line with ReadyAPI CLI. 🚀
 
 **ReadyAPI CLI** is a command line program `readyapi` that you can use to serve your ReadyAPI app, manage your ReadyAPI project, and more.
 
-When you install ReadyAPI (e.g. with `pip install readyapi`), it includes a package called `readyapi-cli`, this package provides the `readyapi` command in the terminal.
+When you install ReadyAPI (e.g. with `pip install "readyapi[standard]"`), it includes a package called `readyapi-cli`, this package provides the `readyapi` command in the terminal.
 
 To run your ReadyAPI app for development, you can use the `readyapi dev` command:
 

@@ -2,14 +2,56 @@
 
 ## Latest Changes
 
-* ✨ Initialize project. PR [#17](https://github.com/khulnasoft/readyapi-cli/pull/17) by [@gitworkflows](https://github.com/gitworkflows).
+## 0.0.5
+
+### Breaking Changes
+
+* ♻️ Add `readyapi-cli[standard]` including Uvicorn, make `readyapi-cli` and `readyapi-cli-slim` have the same packages. PR [#55](https://github.com/readyapi/readyapi-cli/pull/55) by [@khulnasoft](https://github.com/khulnasoft).
+* ➕ Keep Uvicorn in default dependencies. PR [#57](https://github.com/readyapi/readyapi-cli/pull/57) by [@khulnasoft](https://github.com/khulnasoft).
+
+#### Summary
+
+Install with:
+
+```bash
+pip install "readyapi[standard]"
+```
+
+Or if for some reason installing only the ReadyAPI CLI:
+
+```bash
+pip install "readyapi-cli[standard]"
+```
+
+#### Technical Details
+
+Before this, `readyapi-cli` would include Uvicorn and `readyapi-cli-slim` would not include Uvicorn.
+
+In a future version, `readyapi-cli` will not include Uvicorn unless it is installed with `readyapi-cli[standard]`.
+
+ReadyAPI version 0.112.0 has a `readyapi[standard]` and that one includes `readyapi-cli[standard]`.
+
+Before, you would install `pip install readyapi`, or `pip install readyapi-cli`. Now you should include the `standard` optional dependencies (unless you want to exclude one of those): `pip install "readyapi[standard]"`.
+
+In a future version, `readyapi-cli` will not include Uvicorn unless it is installed with `readyapi-cli[standard]`.
 
 ### Refactors
 
 * ♻️ Simplify code in `src/readyapi_cli/discover.py`. PR [#22](https://github.com/khulnasoft/readyapi-cli/pull/22) by [@pedroimpulcetto](https://github.com/pedroimpulcetto).
 
+### Docs
+
+* 🚚 Rename repo references to new GitHub ReadyAPI org. PR [#56](https://github.com/readyapi/readyapi-cli/pull/56) by [@khulnasoft](https://github.com/khulnasoft).
+
 ### Internal
 
+* ⬆ Bump ruff from 0.4.5 to 0.5.5. PR [#52](https://github.com/readyapi/readyapi-cli/pull/52) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 🔧 Remove Python 3.7 from PyPI classifiers. PR [#48](https://github.com/readyapi/readyapi-cli/pull/48) by [@patrick91](https://github.com/patrick91).
+* ⬆ [pre-commit.ci] pre-commit autoupdate. PR [#28](https://github.com/readyapi/readyapi-cli/pull/28) by [@pre-commit-ci[bot]](https://github.com/apps/pre-commit-ci).
+* ⬆ Bump mypy from 1.10.0 to 1.11.1. PR [#53](https://github.com/readyapi/readyapi-cli/pull/53) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* ⬆ Bump pypa/gh-action-pypi-publish from 1.8.14 to 1.9.0. PR [#34](https://github.com/readyapi/readyapi-cli/pull/34) by [@dependabot[bot]](https://github.com/apps/dependabot).
+* 👷 Update issue-manager.yml GitHub Action permissions. PR [#54](https://github.com/khulnasoft/readyapi-cli/pull/54) by [@khulnasoft](https://github.com/khulnasoft).
+* ⬆ Bump ruff from 0.4.4 to 0.4.5. PR [#29](https://github.com/khulnasoft/readyapi-cli/pull/29) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * ⬆ Bump ruff from 0.4.3 to 0.4.4. PR [#23](https://github.com/khulnasoft/readyapi-cli/pull/23) by [@dependabot[bot]](https://github.com/apps/dependabot).
 * 👷 Enable CI tests for Python 3.12. PR [#27](https://github.com/khulnasoft/readyapi-cli/pull/27) by [@khulnasoft](https://github.com/khulnasoft).
 * 👷 Update Upload/Download artifacts GitHub Actions. PR [#26](https://github.com/khulnasoft/readyapi-cli/pull/26) by [@khulnasoft](https://github.com/khulnasoft).

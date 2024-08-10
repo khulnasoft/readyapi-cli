@@ -32,7 +32,7 @@ def test_dev() -> None:
             }
         assert "Using import string single_file_app:app" in result.output
         assert (
-            "╭────────── ReadyAPI CLI - Development mode ───────────╮" in result.output
+            "╭────────── ReadyAPI CLI - Development mode ────────────╮" in result.output
         )
         assert "│  Serving at: http://127.0.0.1:8000" in result.output
         assert "│  API docs: http://127.0.0.1:8000/docs" in result.output
@@ -74,7 +74,7 @@ def test_dev_args() -> None:
             }
         assert "Using import string single_file_app:api" in result.output
         assert (
-            "╭────────── ReadyAPI CLI - Development mode ───────────╮" in result.output
+            "╭────────── ReadyAPI CLI - Development mode ────────────╮" in result.output
         )
         assert "│  Serving at: http://192.168.0.2:8080" in result.output
         assert "│  API docs: http://192.168.0.2:8080/docs" in result.output
@@ -100,7 +100,7 @@ def test_run() -> None:
             }
         assert "Using import string single_file_app:app" in result.output
         assert (
-            "╭─────────── ReadyAPI CLI - Production mode ───────────╮" in result.output
+            "╭─────────── ReadyAPI CLI - Production mode ────────────╮" in result.output
         )
         assert "│  Serving at: http://0.0.0.0:8000" in result.output
         assert "│  API docs: http://0.0.0.0:8000/docs" in result.output
@@ -144,7 +144,7 @@ def test_run_args() -> None:
             }
         assert "Using import string single_file_app:api" in result.output
         assert (
-            "╭─────────── ReadyAPI CLI - Production mode ───────────╮" in result.output
+            "╭─────────── ReadyAPI CLI - Production mode ────────────╮" in result.output
         )
         assert "│  Serving at: http://192.168.0.2:8080" in result.output
         assert "│  API docs: http://192.168.0.2:8080/docs" in result.output

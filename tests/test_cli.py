@@ -31,13 +31,11 @@ def test_dev() -> None:
                 "proxy_headers": True,
             }
         assert "Using import string single_file_app:app" in result.output
-        assert (
-            "╭────────── ReadyAPI CLI - Development mode ───────────╮" in result.output
-        )
-        assert "│  Serving at: http://127.0.0.1:8000" in result.output
-        assert "│  API docs: http://127.0.0.1:8000/docs" in result.output
-        assert "│  Running in development mode, for production use:" in result.output
-        assert "│  readyapi run" in result.output
+        assert "ReadyAPI CLI - Development mode" in result.output
+        assert "Serving at: http://127.0.0.1:8000" in result.output
+        assert "API docs: http://127.0.0.1:8000/docs" in result.output
+        assert "Running in development mode, for production use:" in result.output
+        assert "readyapi run" in result.output
 
 
 def test_dev_args() -> None:
@@ -73,13 +71,11 @@ def test_dev_args() -> None:
                 "proxy_headers": False,
             }
         assert "Using import string single_file_app:api" in result.output
-        assert (
-            "╭────────── ReadyAPI CLI - Development mode ───────────╮" in result.output
-        )
-        assert "│  Serving at: http://192.168.0.2:8080" in result.output
-        assert "│  API docs: http://192.168.0.2:8080/docs" in result.output
-        assert "│  Running in development mode, for production use:" in result.output
-        assert "│  readyapi run" in result.output
+        assert "ReadyAPI CLI - Development mode" in result.output
+        assert "Serving at: http://192.168.0.2:8080" in result.output
+        assert "API docs: http://192.168.0.2:8080/docs" in result.output
+        assert "Running in development mode, for production use:" in result.output
+        assert "readyapi run" in result.output
 
 
 def test_run() -> None:
@@ -99,13 +95,11 @@ def test_run() -> None:
                 "proxy_headers": True,
             }
         assert "Using import string single_file_app:app" in result.output
-        assert (
-            "╭─────────── ReadyAPI CLI - Production mode ───────────╮" in result.output
-        )
-        assert "│  Serving at: http://0.0.0.0:8000" in result.output
-        assert "│  API docs: http://0.0.0.0:8000/docs" in result.output
-        assert "│  Running in production mode, for development use:" in result.output
-        assert "│  readyapi dev" in result.output
+        assert "ReadyAPI CLI - Production mode" in result.output
+        assert "Serving at: http://0.0.0.0:8000" in result.output
+        assert "API docs: http://0.0.0.0:8000/docs" in result.output
+        assert "Running in production mode, for development use:" in result.output
+        assert "readyapi dev" in result.output
 
 
 def test_run_args() -> None:
@@ -143,13 +137,11 @@ def test_run_args() -> None:
                 "proxy_headers": False,
             }
         assert "Using import string single_file_app:api" in result.output
-        assert (
-            "╭─────────── ReadyAPI CLI - Production mode ───────────╮" in result.output
-        )
-        assert "│  Serving at: http://192.168.0.2:8080" in result.output
-        assert "│  API docs: http://192.168.0.2:8080/docs" in result.output
-        assert "│  Running in production mode, for development use:" in result.output
-        assert "│  readyapi dev" in result.output
+        assert "ReadyAPI CLI - Production mode" in result.output
+        assert "Serving at: http://192.168.0.2:8080" in result.output
+        assert "API docs: http://192.168.0.2:8080/docs" in result.output
+        assert "Running in production mode, for development use:" in result.output
+        assert "readyapi dev" in result.output
 
 
 def test_run_error() -> None:

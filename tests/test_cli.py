@@ -4,8 +4,8 @@ from pathlib import Path
 from unittest.mock import patch
 
 import uvicorn
-from readyapi_cli.cli import app
 from cligenius.testing import CliRunner
+from readyapi_cli.cli import app
 
 from tests.utils import changing_dir
 

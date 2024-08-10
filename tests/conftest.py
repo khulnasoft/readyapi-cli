@@ -2,8 +2,8 @@ import sys
 from typing import Generator
 
 import pytest
-from readyapi_cli.logging import setup_logging
 from cligenius import rich_utils
+from readyapi_cli.logging import setup_logging
 
 
 @pytest.fixture(autouse=True)
